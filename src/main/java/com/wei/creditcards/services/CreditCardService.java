@@ -1,5 +1,7 @@
 package com.wei.creditcards.services;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +25,22 @@ public class CreditCardService {
 		
 		if (optionalCC.isPresent()) {
 			return optionalCC.get();
+		} else {
+			return null;
+		}
+	}
+
+	public ArrayList<String> convertBenefits(Long id) {
+		Optional<CreditCard> optionalCC = ccRepo.findById(id);
+		
+		if (optionalCC.isPresent()) {
+			CreditCard card = optionalCC.get();
+			String list = card.getBenefits().replace("[\"", "").replace("\"]", "").replace("\"", "");
+			
+			String[] listSplit = list.split(", ");
+			ArrayList<String> benefitList = new ArrayList<String>(Arrays.asList(listSplit));
+			return benefitList;
+				
 		} else {
 			return null;
 		}

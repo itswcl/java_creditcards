@@ -1,10 +1,8 @@
 package com.wei.creditcards.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,8 +37,7 @@ public class CreditCard {
     @Size(min = 5, max = 255)
     private String bonus;
     @NotNull
-    @ElementCollection
-    private List<String> benefits;
+    private String benefits;
     @Size
     private Integer actual_cost;
     @Column(updatable=false)
@@ -51,7 +48,15 @@ public class CreditCard {
     
     public CreditCard() {}
     
-    public Long getId() {
+    public String getBenefits() {
+		return benefits;
+	}
+
+	public void setBenefits(String benefits) {
+		this.benefits = benefits;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
@@ -99,13 +104,6 @@ public class CreditCard {
 		this.bonus = bonus;
 	}
 
-	public List<String> getBenefits() {
-		return benefits;
-	}
-
-	public void setBenefits(List<String> benefits) {
-		this.benefits = benefits;
-	}
 
 	public Integer getActual_cost() {
 		return actual_cost;
@@ -139,4 +137,5 @@ public class CreditCard {
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
+
 }
