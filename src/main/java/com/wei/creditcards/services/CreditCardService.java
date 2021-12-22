@@ -20,6 +20,10 @@ public class CreditCardService {
 		return ccRepo.findAll();
 	}
 	
+	public List<CreditCard> findByBank(String bank) {
+		return ccRepo.findByBank(bank);
+	}
+	
 	public CreditCard findCC(Long id) {
 		Optional<CreditCard> optionalCC = ccRepo.findById(id);
 		
@@ -29,15 +33,16 @@ public class CreditCardService {
 			return null;
 		}
 	}
+	
 
 	public ArrayList<String> convertBenefits(Long id) {
 		Optional<CreditCard> optionalCC = ccRepo.findById(id);
 		
 		if (optionalCC.isPresent()) {
 			CreditCard card = optionalCC.get();
-			String list = card.getBenefits().replace("[\"", "").replace("\"]", "").replace("\"", "");
+			String list = card.getBenefits().replace("[\"", "").replace("\"]", "").replace("\", \"", "-");
 			
-			String[] listSplit = list.split(", ");
+			String[] listSplit = list.split("-");
 			ArrayList<String> benefitList = new ArrayList<String>(Arrays.asList(listSplit));
 			return benefitList;
 				

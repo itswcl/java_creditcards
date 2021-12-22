@@ -29,6 +29,9 @@ public class CreditCard {
     private String title;
     @NotNull
     @Size(min = 5, max = 255)
+    private String bank;
+    @NotNull
+    @Size(min = 5, max = 255)
     private String image;
     @NotNull
     @Size(min = 5, max = 255)
@@ -127,6 +130,14 @@ public class CreditCard {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public String getBank() {
+		return bank;
+	}
+
+	public void setBank(String bank) {
+		this.bank = bank;
 	}
 
 	@PrePersist

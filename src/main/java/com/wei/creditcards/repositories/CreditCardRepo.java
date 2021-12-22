@@ -10,4 +10,8 @@ import com.wei.creditcards.models.CreditCard;
 @Repository
 public interface CreditCardRepo extends CrudRepository<CreditCard, Long> {
 	List<CreditCard> findAll();
+	
+	List<CreditCard> findByTitleContaining(String infix);
+	
+	List<CreditCard> findByBank(String bank);
 }
