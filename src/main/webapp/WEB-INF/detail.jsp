@@ -16,15 +16,15 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <title>WCL</title>
 </head>
-<body>
+<body class="bg-dark">
 
 	<div class="container">
 
-		<h1>
+		<h1 class="text-light">
 			<c:out value="${ card.title }" />
 		</h1>
 
-		<div class="row d-flex">
+		<div class="row d-flex text-light">
 
 			<div class="col-3 d-flex flex-column justify-content-center">
 				<img src="<c:out value="${ card.image }"/>" alt="" width="300"
@@ -32,7 +32,7 @@
 			</div>
 
 			<div class="col-7">
-				<table class="table">
+				<table class="table text-light">
 					<tbody>
 					<tr>
 					<td>Bank</td>
@@ -75,11 +75,17 @@
 				class="col-3 d-flex flex-column justify-content-center min-vh-100 position-fixed"
 				style="right: 0px">
 
-				<ul class="list-inline text-center">
-					<li class="list-inline-item list-group py-3"><a href="/creditcards">All</a></li>
-					<li class="list-inline-item list-group py-3"><a href="#">Chase</a></li>
-					<li class="list-inline-item list-group py-3"><a href="#">Amex</a></li>
-					<li class="list-inline-item list-group py-3"><a href="#">Citi</a></li>
+				<ul class="list-inline text-center fs-1">
+					<li class="list-inline-item list-group py-3"><a class="text-warning"
+						href="/creditcards">All</a></li>
+					<li class="list-inline-item list-group py-3"><a class="text-warning"
+						href="/creditcards/bank/chase">Chase</a></li>
+					<li class="list-inline-item list-group py-3"><a class="text-warning"
+						href="/creditcards/bank/amex">Amex</a></li>
+					<li class="list-inline-item list-group py-3"><a class="text-warning"
+						href="/creditcards/bank/citi">Citi</a></li>
+					<li class="list-inline-item list-group py-3"><a class="text-warning"
+						href="/creditcards/bank/other">Other</a></li>
 				</ul>
 
 			</nav>

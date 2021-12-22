@@ -16,11 +16,11 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <title>Credit Card Churning</title>
 </head>
-<body>
+<body class="bg-dark">
 
 	<div class="container">
 
-		<h1>WCL</h1>
+		<h1 class="text-light text-center">WCL</h1>
 
 		<div class="row d-flex">
 
@@ -28,12 +28,13 @@
 				style="padding-right: 200px">
 				<c:forEach var="card" items="${ cards }">
 
-					<div class="col">
-						<div class="card">
-							<a href="creditcards/<c:out value="${ card.id }" />"> <img
+					<div class="col d-flex flex-column justify-content-around">
+
+							<a href="/creditcards/<c:out value="${ card.id }" />">
+							<img
 								src="<c:out value="${ card.image }"/>"
 								alt="<c:out value="${ card.title }" />" class="card-img-top" /></a>
-							<div class="card-body">
+							<div class="card-body text-light h-100 d-inline-block">
 								<h5 class="card-title fs-6">
 									<c:out value="${ card.title }" />
 								</h5>
@@ -41,28 +42,29 @@
 									Annual Fee
 									<c:out value="${ card.fee }" />
 								</p>
-								<div class="card text-center">
-									<c:if test="${ card.actual_cost > 0 }">
-										<h3 class="fs-3">
-											Annual Earn $
-											<c:out value="${ card.actual_cost }" />
-										</h3>
-									</c:if>
-									<c:if test="${ card.actual_cost == 0 }">
-										<h3 class="fs-3">
-											Annual Fee $
-											<c:out value="${ card.actual_cost }" />
-										</h3>
-									</c:if>
-									<c:if test="${ card.actual_cost < 0 }">
-										<h3 class="fs-3">
-											Annual Loss $
-											<c:out value="${ card.actual_cost }" />
-										</h3>
-									</c:if>
-								</div>
+
 							</div>
-						</div>
+							<div class="card-body rounded-pill bg-warning text-center">
+								<c:if test="${ card.actual_cost > 0 }">
+									<h3 class="fs-5">
+										Annual Earn $
+										<c:out value="${ card.actual_cost }" />
+									</h3>
+								</c:if>
+								<c:if test="${ card.actual_cost == 0 }">
+									<h3 class="fs-5">
+										Actual Fee $
+										<c:out value="${ card.actual_cost }" />
+									</h3>
+								</c:if>
+								<c:if test="${ card.actual_cost < 0 }">
+									<h3 class="fs-5">
+										Actual Fee $
+										<c:out value="${ card.actual_cost }" />
+									</h3>
+								</c:if>
+							</div>
+
 					</div>
 
 				</c:forEach>
@@ -73,16 +75,16 @@
 				class="col-3 d-flex flex-column justify-content-center min-vh-100 position-fixed"
 				style="right: 0px">
 
-				<ul class="list-inline text-center">
-					<li class="list-inline-item list-group py-3"><a
+				<ul class="list-inline text-center fs-1">
+					<li class="list-inline-item list-group py-3"><a class="text-warning"
 						href="/creditcards">All</a></li>
-					<li class="list-inline-item list-group py-3"><a
+					<li class="list-inline-item list-group py-3"><a class="text-warning"
 						href="/creditcards/bank/chase">Chase</a></li>
-					<li class="list-inline-item list-group py-3"><a
+					<li class="list-inline-item list-group py-3"><a class="text-warning"
 						href="/creditcards/bank/amex">Amex</a></li>
-					<li class="list-inline-item list-group py-3"><a
+					<li class="list-inline-item list-group py-3"><a class="text-warning"
 						href="/creditcards/bank/citi">Citi</a></li>
-					<li class="list-inline-item list-group py-3"><a
+					<li class="list-inline-item list-group py-3"><a class="text-warning"
 						href="/creditcards/bank/other">Other</a></li>
 				</ul>
 

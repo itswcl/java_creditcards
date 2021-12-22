@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -43,6 +46,12 @@ public class CreditCard {
     private String benefits;
     @Size
     private Integer actual_cost;
+    
+	// ------ MANY card to One Admin
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "adminId")
+	private User adminId;
+    
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
@@ -138,6 +147,14 @@ public class CreditCard {
 
 	public void setBank(String bank) {
 		this.bank = bank;
+	}
+
+	public User getAdminId() {
+		return adminId;
+	}
+
+	public void setAdminId(User adminId) {
+		this.adminId = adminId;
 	}
 
 	@PrePersist
