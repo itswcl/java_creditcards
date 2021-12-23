@@ -19,48 +19,47 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="cards")
+@Table(name = "cards")
 public class CreditCard {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @NotNull
-    @Size(min = 5, max = 255)
-    private String card_id;    
-    @NotNull
-    @Size(min = 5, max = 255)
-    private String title;
-    @NotNull
-    @Size(min = 5, max = 255)
-    private String bank;
-    @NotNull
-    @Size(min = 5, max = 255)
-    private String image;
-    @NotNull
-    @Size(min = 5, max = 255)
-    private String fee;
-    @NotNull
-    @Size(min = 5, max = 255)
-    private String bonus;
-    @NotNull
-    private String benefits;
-    @Size
-    private Integer actual_cost;
-    
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@NotNull
+	@Size(min = 5, max = 255)
+	private String card_id;
+	@NotNull
+	@Size(min = 5, max = 255)
+	private String title;
+	@NotNull
+	private String bank;
+	@NotNull
+	@Size(min = 5, max = 255)
+	private String image;
+	@NotNull
+	private String fee;
+	@NotNull
+	@Size(min = 5, max = 255)
+	private String bonus;
+	@NotNull
+	private String benefits;
+	@NotNull
+	private Integer actual_cost;
+
 	// ------ MANY card to One Admin
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "adminId")
 	private User adminId;
-    
-    @Column(updatable=false)
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date createdAt;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date updatedAt;
-    
-    public CreditCard() {}
-    
-    public String getBenefits() {
+
+	@Column(updatable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date createdAt;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date updatedAt;
+
+	public CreditCard() {
+	}
+
+	public String getBenefits() {
 		return benefits;
 	}
 
@@ -116,7 +115,6 @@ public class CreditCard {
 		this.bonus = bonus;
 	}
 
-
 	public Integer getActual_cost() {
 		return actual_cost;
 	}
@@ -158,12 +156,13 @@ public class CreditCard {
 	}
 
 	@PrePersist
-    protected void onCreate(){
-        this.createdAt = new Date();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-        this.updatedAt = new Date();
-    }
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
 
 }

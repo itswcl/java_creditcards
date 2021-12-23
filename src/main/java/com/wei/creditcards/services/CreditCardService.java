@@ -34,6 +34,9 @@ public class CreditCardService {
 		}
 	}
 	
+	public CreditCard createCard(CreditCard card) {
+		return ccRepo.save(card);
+	}
 
 	public ArrayList<String> convertBenefits(Long id) {
 		Optional<CreditCard> optionalCC = ccRepo.findById(id);
