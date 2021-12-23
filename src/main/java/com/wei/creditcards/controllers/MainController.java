@@ -148,5 +148,14 @@ public class MainController {
 		}
 	}
 	
+// ---------------- logout route --------------------------
+	@GetMapping("creditcards/logout")
+	public String logout(HttpSession ses) {
+		if (ses.getAttribute("user_id") != null) {
+			ses.invalidate();
+		}
+		return "redirect:/creditcards";			
+		
+	}
 	
 }

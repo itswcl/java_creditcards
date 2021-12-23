@@ -20,27 +20,28 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <title>Starting page</title>
 </head>
-<body>
+<body class="bg-dark">
 
 	<div class="container">
-		<div class="col p-5">
-			<h1>Log in</h1>
-			
+		<div class="col p-5 text-center">
+
 			<form:form action="/login" method="post" modelAttribute="newLogin">
-				<div class="form-group">
-					<label>Email:</label>
+
+				<div class="form-group row m-2">
+					<label class="text-light">Email:</label>
 					<form:input path="email" class="form-control" />
 					<form:errors path="email" class="text-danger" />
 				</div>
-				
-				<div class="form-group">
-					<label>Password:</label>
+
+				<div class="form-group row m-2">
+					<label class="text-light">Password:</label>
 					<form:password path="password" class="form-control" />
 					<form:errors path="password" class="text-danger" />
 				</div>
-				<input type="submit" value="Login" class="btn btn-success" />
+				<input type="submit" value="Login" class="btn btn-primary bg-dark" />
+
 			</form:form>
-			
+
 		</div>
 	</div>
 

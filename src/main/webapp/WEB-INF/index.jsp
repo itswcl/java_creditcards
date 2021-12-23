@@ -76,7 +76,11 @@
 				style="right: 0px">
 
 				<ul class="list-inline text-center fs-1">
+					<c:if test="${ user_id == 1 }">
+						<li class="list-inline-item list-group py-3"><a
+							class="text-warning" href="/creditcards/logout">Logout</a></li>
 
+					</c:if>
 					<li class="list-inline-item list-group py-3"><a
 						class="text-warning" href="/creditcards">All</a></li>
 					<li class="list-inline-item list-group py-3"><a
@@ -86,11 +90,8 @@
 					<li class="list-inline-item list-group py-3"><a
 						class="text-warning" href="/creditcards/bank/citi">Citi</a></li>
 					<li class="list-inline-item list-group py-3"><a
-						class="text-warning" href="/creditcards">Other</a></li>
-					<c:if test="${ user_id == 1 }">
-						<li class="list-inline-item list-group py-3"><a
-							class="text-warning" href="#">Add</a></li>
-					</c:if>
+						class="text-warning" href="/creditcards/bank/other">Other</a></li>
+
 				</ul>
 
 			</nav>
