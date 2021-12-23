@@ -38,7 +38,7 @@ public class MainController {
 // ---------------- Admin register and log in---------------------------
 
 	// register route display - disable after admin register 
-	@GetMapping("/register")
+	@GetMapping("/creditcards/register")
 	public String indexRegister(Model model, HttpSession session) {
 		
 //		if (session.getAttribute("user_id") != null) {
@@ -67,7 +67,7 @@ public class MainController {
 //	}
 
 	// log in route display
-	@GetMapping("/login")
+	@GetMapping("/creditcards/login")
 	public String indexLogin(Model model, HttpSession session) {
 		if (session.getAttribute("user_id") != null) {
 			return "redirect:/creditcards";

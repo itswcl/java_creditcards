@@ -87,8 +87,8 @@
 			</div>
 		</div>
 
-		<input class="btn btn-primary bg-dark" type="submit" value="Edit" />
-		<a class="btn btn-primary bg-dark" href="/creditcards">Back</a>
+		<input class="btn btn-primary bg-dark" type="submit" value="Update" />
+		<a class="btn btn-primary bg-dark" href="/creditcards/${ card.id }">Back</a>
 	</form:form>
 
 
